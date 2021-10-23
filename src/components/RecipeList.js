@@ -1,4 +1,4 @@
-import RecipeCard from './RecipeCard'
+import RecipeCard from './RecipeCard';
 
 const RecipeList = ({ recipes, searchTerm }) => {
 	return (
@@ -9,7 +9,7 @@ const RecipeList = ({ recipes, searchTerm }) => {
 				</h1>
 			)}
 			<div className='grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 justify-items-center'>
-				{recipes.map((recipe) => (
+				{recipes?.map((recipe) => (
 					<RecipeCard
 						key={recipe.id}
 						title={recipe.title}
@@ -18,7 +18,7 @@ const RecipeList = ({ recipes, searchTerm }) => {
 				))}
 			</div>
 		</div>
-	)
-}
+	);
+};
 
-export default RecipeList
+export default RecipeList;

@@ -1,12 +1,13 @@
-import { useState } from 'react';
+import { useRef } from 'react';
 
 const SearchBar = ({ setSearchTerm }) => {
-	const [text, setText] = useState('');
+	const inputRef = useRef();
 
 	const handleOnSubmit = (e) => {
 		e.preventDefault();
 
-		setSearchTerm(text);
+		setSearchTerm(inputRef.current.value);
+		inputRef.current.value = '';
 	};
 
 	return (
@@ -19,7 +20,7 @@ const SearchBar = ({ setSearchTerm }) => {
 					type='text'
 					className='border px-2 py-1 mr-2 rounded capitalize w-72 shadow'
 					placeholder='Search for country...'
-					onChange={(e) => setText(e.target.value)}
+					ref={inputRef}
 				/>
 				<button
 					type='submit'
